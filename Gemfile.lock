@@ -26,7 +26,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
-
     bcrypt (3.1.7)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -52,6 +51,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.1.0)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.5)
     guard (2.6.1)
@@ -184,14 +188,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-=======
   bcrypt (= 3.1.7)
->>>>>>> f9d475d37004468abb91029e1df9e60adcb3bb81
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
   childprocess (= 0.3.6)
   coffee-rails (= 4.0.1)
+  factory_girl_rails (= 4.2.1)
   guard-rspec (= 2.5.0)
   guard-spork (= 1.5.0)
   jbuilder (= 1.0.2)
