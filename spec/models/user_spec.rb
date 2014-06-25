@@ -18,9 +18,21 @@ describe User do
 
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-  it { should be_valid }
+  it { should respond_to(:admin) }
 
- describe "email address with mixed case" do
+  it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+
+    it { should be_admin }
+  end
+
+  describe "email address with mixed case" do
     let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
 
     it "should be saved as all lower-case" do
@@ -68,11 +80,10 @@ describe User do
 	  it { should_not be_valid }
 	end	
 
-<<<<<<< HEAD
 	describe "with a password that's too short" do
-	    before { @user.password = @user.password_confirmation = "a" * 5 }
-	    it { should be_invalid }
-	  end
+	  before { @user.password = @user.password_confirmation = "a" * 5 }
+	  it { should be_invalid }
+	end
 
   describe "return value of authenticate method" do
     before { @user.save }
@@ -88,10 +99,10 @@ describe User do
       it { should_not eq user_for_invalid_password }
       specify { expect(user_for_invalid_password).to be_false }
     end
-=======
+  end
+
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
->>>>>>> sign-in-out
   end
 end
